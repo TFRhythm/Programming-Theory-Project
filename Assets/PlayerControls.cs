@@ -4,14 +4,13 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerControls : MonoBehaviour
 {
-    [SerializeField] private float thrust;     
-    [SerializeField] private float turnSpeed;  
-    [SerializeField] private float maxSpeed; 
+    [SerializeField] private float thrust;
+    [SerializeField] private float turnSpeed;
+    [SerializeField] private float maxSpeed;
 
     private float moveInput;
     private int turnInput;
-
-    private int health = 5;
+    public int health { get; private set; } = 5;
 
     [SerializeField] private SpriteRenderer FlameSR;
     [SerializeField] private Text HealthText;
@@ -108,10 +107,10 @@ public class PlayerControls : MonoBehaviour
     public void ModifyHealth(int damage)
     {
         health -= damage;
+        SetHealthText(false);
         if (health <= 0)
         {
             health = 0;
-        SetHealthText(false);
             GameOver();
         }
     }
