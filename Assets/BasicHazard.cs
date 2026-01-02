@@ -19,7 +19,7 @@ public class BasicHazard : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
         PlayerCollider2D = player.GetComponent<Collider2D>();
         PlayerRb2D = player.GetComponent<Rigidbody2D>();
-        Player = player.GetComponent <PlayerControls>();
+        Player = player.GetComponent<PlayerControls>();
 
         sr = GetComponent<SpriteRenderer>();
     }
@@ -30,9 +30,9 @@ public class BasicHazard : MonoBehaviour
 
         switch (DamageDealt)
         {
-            case 1: sr.color = Color.red; break;
-            case 2: sr.color = Color.magenta; break;
-            case 3: sr.color = Color.black; break;
+            case 1: sr.color = Color.white; break;
+            case 2: sr.color = Color.yellow; break;
+            case 3: sr.color = Color.red; break;
 
         }
     }
