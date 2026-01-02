@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//INHERITANCE
 public class BasicHazard : MonoBehaviour
 {
     [Range(1, 3)]
@@ -37,13 +39,14 @@ public class BasicHazard : MonoBehaviour
         }
     }
 
+    //POLYMORPHISM
     protected virtual Vector2 RecoilDirectionCalculator()
     {
         Vector2 direction = (PlayerRb2D.position - (Vector2)this.transform.position).normalized;
         return direction;
     }
 
-    protected virtual void DealDamageToPlayer()
+    private void DealDamageToPlayer()
     {
         Player.ModifyHealth(DamageDealt);
     }

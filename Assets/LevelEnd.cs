@@ -50,6 +50,7 @@ public class LevelEnd : MonoBehaviour
         }
     }
 
+    //ABSTRACTION
     public void EndLevel(bool victory)
     {
         PlayerRb2D.velocity = Vector3.zero;
@@ -58,6 +59,7 @@ public class LevelEnd : MonoBehaviour
         EndPanel.SetActive(true);
         if (victory)
         {
+            //ENCAPSULATION (health value get here)
             EndText.text = "You Win!\r\n\r\nHealth Remaining: " + Player.health + "\r\n\r\nPress Space to return to Title Screen";
         }
         else

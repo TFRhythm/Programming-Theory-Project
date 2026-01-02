@@ -10,6 +10,8 @@ public class PlayerControls : MonoBehaviour
 
     private float moveInput;
     private int turnInput;
+
+    //ENCAPSULATION
     public int health { get; private set; } = 5;
 
     [SerializeField] private SpriteRenderer FlameSR;
@@ -63,17 +65,6 @@ public class PlayerControls : MonoBehaviour
             turnInput = 0;
         }
 
-        //Makes the boundaries of the small map warp to the opposite boundary, like in Pac-Man
-        /*
-        if (Mathf.Abs(rb2D.position.x) > 9.8f)
-        {
-            rb2D.position = new Vector2(9.75f * -Mathf.Sign(rb2D.position.x), rb2D.position.y);
-        }
-
-        if (Mathf.Abs(rb2D.position.y) > 6.2f)
-        {
-            rb2D.position = new Vector2(rb2D.position.x, 6f * -Mathf.Sign(rb2D.position.y));
-        }*/
 
         if (HealthFlashTimer > 0)
         {
@@ -112,7 +103,8 @@ public class PlayerControls : MonoBehaviour
         if (health <= 0)
         {
             health = 0;
-            GameOver();
+            //ABSTRACTION
+            EndLevel.EndLevel(false);
         }
         SetHealthText(false);
     }
@@ -128,8 +120,4 @@ public class PlayerControls : MonoBehaviour
         HealthFlashTimer = 0.2f;
     }
 
-    private void GameOver()
-    {
-        EndLevel.EndLevel(false);
-    }
 }
