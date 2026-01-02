@@ -36,7 +36,7 @@ public class LevelEnd : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                SceneManager.LoadScene("Title");
             }
         }
     }
@@ -58,12 +58,12 @@ public class LevelEnd : MonoBehaviour
         EndPanel.SetActive(true);
         if (victory)
         {
-            EndText.text = "You Win!\r\n\r\nHealth Remaining: " + Player.health + "\r\n\r\nPress Space to Play Again";
+            EndText.text = "You Win!\r\n\r\nHealth Remaining: " + Player.health + "\r\n\r\nPress Space to return to Title Screen";
         }
         else
         {
             Destroy(Player.gameObject);
-            EndText.text = "Game Over!\r\n\r\nPress Space to Play Again";
+            EndText.text = "Game Over!\r\n\r\nPress Space to return to Title Screen";
 
         }
     }
