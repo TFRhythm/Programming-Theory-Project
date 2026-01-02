@@ -18,6 +18,8 @@ public class PlayerControls : MonoBehaviour
 
     private Rigidbody2D rb2D;
 
+    [SerializeField] private LevelEnd EndLevel;
+
     void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -107,12 +109,12 @@ public class PlayerControls : MonoBehaviour
     public void ModifyHealth(int damage)
     {
         health -= damage;
-        SetHealthText(false);
         if (health <= 0)
         {
             health = 0;
             GameOver();
         }
+        SetHealthText(false);
     }
     private void SetHealthText(bool isSceneStart)
     {
@@ -123,11 +125,11 @@ public class PlayerControls : MonoBehaviour
         }
 
         HealthText.color = Color.red;
-        HealthFlashTimer = 1f;
+        HealthFlashTimer = 0.2f;
     }
 
     private void GameOver()
     {
-
+        EndLevel.EndLevel(false);
     }
 }
